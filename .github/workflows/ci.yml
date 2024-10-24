@@ -27,8 +27,14 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      # Step 4: Run tests
-      - name: Run tests
+      # Step 4: Install Mocha and Chai
+      - name: Install Mocha and Chai
+        run: npm install mocha chai --save-dev
+
+      # Step 5: Run tests
+      - name: Run all tests
         run: |
-          npm install mocha chai --save-dev  # Install test dependencies
-          npx mocha test/calculator.test.js  # Run the tests
+          npx mocha tests/addition.test.js
+          npx mocha tests/subtraction.test.js
+          npx mocha tests/multiplication.test.js
+          npx mocha tests/division.test.js
